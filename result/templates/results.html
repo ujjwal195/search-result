@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff; /* Blue */
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding: 20px;
+            background-color: #f8f9fa; /* Light gray */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        li strong {
+            color: #333;
+        }
+
+        p {
+            color: #777;
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .no-flight {
+            font-weight: bold;
+            color: #dc3545; /* Red */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Results</h1>
+        {% if flight_data %}
+            <ul>
+                <li><strong>Flight No:</strong> {{ flight_data.Flight_No }}</li>
+                <li><strong>Airline:</strong> {{ flight_data.Airline }}</li>
+                <li><strong>From:</strong> {{ flight_data.From }}</li>
+                <li><strong>To:</strong> {{ flight_data.To }}</li>
+                <li><strong>Duration:</strong> {{ flight_data.Duration }}</li>
+                <li><strong>Price:</strong> {{ flight_data.Price }}</li>
+            </ul>
+        {% else %}
+            <p class="no-flight">No flight found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
